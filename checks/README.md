@@ -18,7 +18,9 @@ printed book: none of them establishes that our text matches the book.
   `lean-proofs.json`; and unit tests of the lint.
 * `sage/` — `just check-sage` runs every script here with `sage -python`, so
   each script is plain Python that imports `sage.all` (last run with
-  SageMath 10.9; CI uses the official SageMath container). One script per
+  SageMath 10.9; CI uses the official SageMath container, into which
+  `scripts/install_gap_packages.py` installs GAP's character table library
+  at pinned versions). One script per
   chapter or half chapter (`chapter-1.py` … `chapter-6.py`), exact
   computations over finite fields, the integers and number fields, with
   GAP through `libgap` (MeatAxe, character tables, tables of marks): for
