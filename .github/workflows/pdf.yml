@@ -79,6 +79,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+      - name: GAP character table library
+        run: sage -python scripts/install_gap_packages.py
       - name: Exact algebra checks
         run: sage -python scripts/check_sage.py
   lean:
