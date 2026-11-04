@@ -1,0 +1,22 @@
+-- Root module: imports every file of checks/lean/BensonRepresentations/.
+import BensonRepresentations.BrauerTreeCartan
+import BensonRepresentations.CentralIdempotentLift
+import BensonRepresentations.CentreNaturalEndo
+import BensonRepresentations.ConnectingHomomorphism
+import BensonRepresentations.CoxeterFixedPoint
+import BensonRepresentations.CyclicDiagonal
+import BensonRepresentations.DimensionSubgroups
+import BensonRepresentations.EuclideanForm
+import BensonRepresentations.FiltrationShift
+import BensonRepresentations.FormsUV
+import BensonRepresentations.GroupExtensionCocycle
+import BensonRepresentations.IdempotentNilSplitting
+import BensonRepresentations.IdempotentRefinement
+import BensonRepresentations.JenningsPoincare
+import BensonRepresentations.KleinFourScalars
+import BensonRepresentations.SeparatingElement
+import BensonRepresentations.SplitOfIsoMiddle
+import BensonRepresentations.SquareZeroDimension
+import BensonRepresentations.SurjectiveModRadicalSquare
+import BensonRepresentations.TauZeroDual
+import BensonRepresentations.WreathEmbedding

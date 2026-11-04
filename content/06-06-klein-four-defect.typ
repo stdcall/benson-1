@@ -1,0 +1,360 @@
+#import "main-defs.typ": *
+#import "statements.typ": *
+#import "diagrams/06-06-klein-four-defect.typ": ext-quiver
+
+== Klein four defect groups <sec:klein-four-defect>
+
+In this section we show how the methods of the last section can be pushed to
+determine the structure of blocks whose defect groups are Klein four groups#idx(
+  "defect",
+  "Klein four group",
+)#idx("Klein four group", "as defect group")#idx("four", "group, Klein")#idx(
+  "group",
+  "Klein four",
+). In an extraordinary series of papers, Erdmann [@bib:Erdmann1987,
+@bib:Erdmann1988a, @bib:Erdmann1990a, @bib:Erdmann1988b, @bib:Erdmann1988c] has
+taken this method to its natural conclusion by completing the analysis of tame
+blocks#idx("tame", "representation type") of group algebras; namely those whose
+defect groups are dihedral, semidihedral or generalised quaternion. For all
+other possible defect groups the representation type is wild, and so one does
+not expect an analysis of almost split sequences to determine the algebra
+structure.
+
+Suppose $k$ is an algebraically closed field of characteristic two, and suppose
+$B$ is a block of $k G$ whose defect group $D$ is a Klein four group
+$ZZ slash 2 times ZZ slash 2$. By Brauer's first main theorem, there is a unique
+block $b$ of $N_G (D)$ with $b^G = B$. By the extended first main theorem there
+is a unique $N_G (D)$-conjugacy class of blocks $b_1$ of $k C_G (D)$ (note that
+$D <= C_G (D)$) with $b_1^(N_G (D)) = b$ (so that $b_1^G = B$). Let
+$T = T(b_1) <= N_G (D)$ be the inertial group of $b_1$, and set
+$e = |T : C_G (D)|$, the inertial index of $B$. Since $N_G (D) slash C_G (D)$ is
+isomorphic to a subgroup of $Aut(D)$, which has order six, and $e$ is coprime to
+$p = 2$, it follows that $e = 1$ or $3$. We begin with the case $e = 1$.
+
+#theorem[
+  Suppose $k$ is an algebraically closed field of characteristic two, and $B$ is
+  a block of $k G$ with Klein four defect group $D$ and inertial #source(
+    231,
+  )index $e = 1$. Then there is a unique simple module $S$ in $B$, and if $P_S$
+  is its projective cover then $Rad(P_S) slash Soc(P_S) tilde.equiv S plus.o S$.
+  For some $n >= 1$ we have $B tilde.equiv Mat_n (k D)$.
+] <th:klein-four-inertial-index-one>
+
+#proof[
+  We begin with the case where $D$ is central in $G$. In this case
+  Proposition~@prop:normal-defect-matrix-ring shows that
+  $B tilde.equiv Mat_n (k D)$. Next, if $D$ is normal but not central then by
+  Theorem~@th:clifford-blocks there is a unique conjugacy class of blocks $b$ of
+  $C_G (D)$ covered by $B$. Since $e = 1$ the inertial group of $b$ is $C_G (D)$
+  and so $B tilde.equiv Mat_m (b)$, where $m = |G : C_G (D)|$.
+
+  To examine the case where $D$ is not normal in $G$, we first examine the
+  stable Auslander–Reiten quiver of $k G$-modules. Let $b$ be the Brauer
+  correspondent of $B$ as a block of $k N_G (D)$. Referring to the examples at
+  the end of Section~@sec:webb, we see that the stable quiver of $b$-modules
+  consists of a component of type $ZZ tilde(A)_12$#idx("$ZZ tilde(A)_12$") and
+  an infinite set of 1-tubes, each fixed by $Omega$. Since every proper subgroup
+  of $D$ is cyclic, all but a finite number of these modules have vertex $D$,
+  and the remaining modules lie in 1-tubes. It thus follows from
+  Theorem~@th:almost-split-green-correspondence and
+  Corollary~@cor:nagao-green-correspondent that the stable quiver of $B$-modules
+  also consists of a component of type $ZZ tilde(A)_12$ and an infinite set of
+  1-tubes, each fixed by $Omega$.
+
+  Now suppose $P_S$ is the projective cover of a simple $B$-module $S$. If $P_S$
+  is attached at the end of a 1-tube then
+  $Rad(P_S) tilde.equiv P_S slash Soc(P_S)$. It is easy to see that this implies
+  $P_S$ is uniserial with all composition factors isomorphic to $S$ and hence
+  $S$ is the only simple module in a block of finite representation type. This
+  is absurd, and so $P_S$ is connected to the component of type
+  $ZZ tilde(A)_12$. This implies that
+  $Rad(P_S) slash Soc(P_S) tilde.equiv S plus.o S$. So $S$ is the only simple
+  module in $B$, and by Morita theory $B tilde.equiv Mat_n (End_B (P_S)^op)$.
+  Let $alpha$ be an endomorphism of $P_S$ taking the top composition factor to
+  one of the summands of the middle, and $beta$ be an endomorphism taking it to
+  the other summand. Since the image $M$ of $alpha$ is a module with a
+  resolution by projective modules all of dimension four, it follows from
+  Auslander's Theorem~@th:auslander-infinite-component that $M$ does not lie in
+  the $ZZ tilde(A)_12$ component and so it satisfies $M tilde.equiv Omega(M)$,
+  so that $alpha^2 = 0$. Similarly $beta^2 = 0$ and $alpha beta$ is some
+  non-zero multiple of $beta alpha$. But $B$, and hence also $End_B (P_S)$, is a
+  symmetric algebra. If $lambda$ is a linear map as in the definition of a
+  symmetric algebra, then $lambda(alpha beta) = lambda(beta alpha)$. Since
+  $lambda$ cannot vanish on the left ideal generated by $alpha beta$, we have
+  $alpha beta = beta alpha$ and so
+  $End_B (P_S) tilde.equiv k chevron.l alpha, beta chevron.r slash
+  (alpha^2, beta^2, alpha beta - beta alpha) tilde.equiv k D$.
+]
+
+#theorem[
+  Suppose $k$ is an algebraically closed field of characteristic two, and $B$ is
+  a block of $k G$ with Klein four defect group $D$ normal in $G$, and inertial
+  index $e = 3$. Then there are three simple modules, $S_1$, $S_2$, $S_3$ in $B$
+  with projective covers $P_1$, $P_2$, $P_3$. We have
+  $Rad(P_j) slash Soc(P_j) tilde.equiv S_(j-1) plus.o S_(j+1)$ where the indices
+  are taken modulo three. For some $n >= 1$ we have
+  $B tilde.equiv Mat_n (k A_4)$, where $A_4$ is the alternating group of degree
+  four.
+] <th:klein-four-normal-inertial-index-three>
+
+#proof[
+  Let $b$ be a block of $k C_G (D)$ covered by $B$. Then $T(b) = G$,
+  $|G : C_G (D)| = 3$, and by the previous theorem we have
+  $b tilde.equiv Mat_n (k D)$. Let $S$ be the simple module in $b$. Then $S$ is
+  stable under conjugation by $G$, and #source(232)so by the same argument as we
+  used in the proof of Proposition~@prop:cyclic-defect-normal, we see that $S$
+  extends to give three non-isomorphic $B$-modules $S_1$, $S_2$, $S_3$, and this
+  is a complete list of simple $B$-modules. Also
+  $P_S up^G tilde.equiv P_1 plus.o P_2 plus.o P_3$ and
+  $P_j down_(C_G (D)) tilde.equiv P_S$. Thus $Rad(P_j) slash Soc(P_j)$ is
+  isomorphic to a direct sum of two simples. Since the three simples are related
+  by tensoring with the three one dimensional modules for
+  $k G slash C_G (D) = k(ZZ slash 3)$, the whole picture is invariant under the
+  substitution $S_j |-> S_(j+1)$. Now the facts that the Cartan matrix is
+  symmetric and that its determinant is a power of two (see
+  Corollary~@cor:cartan-determinant or Theorem~@th:cartan-determinant) leave
+  only one possibility for a block, namely
+  $Rad(P_j) slash Soc(P_j) tilde.equiv S_(j-1) plus.o S_(j+1)$. We now compute
+  the basic algebra by the method of quivers with relations
+  (Section~@sec:quivers). The Ext-quiver is as follows:
+  $ #ext-quiver $
+  The relations are
+  $0 = delta alpha = beta gamma = alpha zeta = epsilon beta = zeta delta
+  = gamma epsilon$, and there are non-zero constants $mu_1$, $mu_2$, $mu_3$ with
+  $beta alpha = mu_1 zeta epsilon$, $epsilon zeta = mu_2 delta gamma$ and
+  $gamma delta = mu_3 alpha beta$. By replacing (say) $zeta$ and $delta$ by
+  non-zero multiples, we may assume that $mu_1 = mu_2 = 1$. Now $B$ is a
+  symmetric algebra, and hence so is the basic algebra. If $lambda$ is a linear
+  map as in the definition of symmetric algebra then
+  $
+    0 != lambda(alpha beta) = lambda(beta alpha) = lambda(zeta epsilon)
+    = lambda(epsilon zeta) = lambda(delta gamma) = lambda(gamma delta)
+    = mu_3 lambda(alpha beta)
+  $
+  and so $mu_3 = 1$. Thus the basic algebra is completely determined. Now
+  $k A_4$#idx("alternating group", "$A_4$")#idx("group", "alternating", "$A_4$")
+  is an example of such a block $B$, and is basic. Since $S_1$, $S_2$, $S_3$
+  have the same dimension, $n$ say, Morita theory implies that $B$ is isomorphic
+  to the endomorphism ring of a direct sum of copies of the regular
+  representation of $k A_4$, i.e., $B tilde.equiv Mat_n (k A_4)$.
+]
+
+#theorem[
+  Suppose $k$ is an algebraically closed field of characteristic two, and $B$ is
+  a block of $k G$ with Klein four defect group $D$ of inertial index $e = 3$.
+  Then there are three simple $B$-modules $S_1$, $S_2$, $S_3$ with projective
+  covers $P_1$, $P_2$, $P_3$. One of the following possibilities holds:
+  + $B$ is Morita equivalent to the group algebra $k A_4$. In this case
+    $ Rad(P_j) slash Soc(P_j) tilde.equiv S_(j-1) plus.o S_(j+1), $
+    where the indices are taken modulo three.
+  + $B$ is Morita equivalent to the principal block $B_0 (k A_5)$ of the group
+    algebra of the alternating group $A_5$#idx(
+      "alternating group",
+      "$A_5$",
+    )#idx("group", "alternating", "$A_5$"). In this case, after re-indexing if
+    necessary we have
+    $
+      Rad(P_1) slash Soc(P_1) & = Uni(S_2, S_1, S_3) plus.o
+                                Uni(S_3, S_1, S_2) \
+      Rad(P_2) slash Soc(P_2) & = Uni(S_1, S_3, S_1) \
+      Rad(P_3) slash Soc(P_3) & = Uni(S_1, S_2, S_1).
+    $
+    #source(233)Here, $Uni(A, B, dots)$ denotes a uniserial module with
+    composition factors $A, B, dots$ starting from the top.
+] <th:klein-four-inertial-index-three>
+
+#proof[
+  The proof of this theorem is a variant of the ideas in
+  Theorem~@th:brauer-graph-algebra in which the almost split sequences
+  considered have non-isomorphic ends. The problem with applying the theorem as
+  it stands is that there are infinitely many 1-tubes, as we shall see.
+
+  We use Green correspondence to examine the stable Auslander–Reiten quiver of
+  $B$-modules. Let $b$ be the block of $k N_G (D)$ corresponding to $B$ by
+  Brauer's first main theorem, and $b_1$ a block of $k C_G (D)$ covered by $b$.
+  By the previous theorem, $b$ is Morita equivalent to the group algebra $k A_4$
+  of the alternating group of degree four, and so by the example at the end of
+  Section~@sec:webb, the stable quiver of $b$-modules consists of one component
+  $ZZ tilde(A)_5$#idx("$ZZ tilde(A)_5$"), two 3-tubes, and an infinite set of
+  1-tubes, and $Omega$ fixes each component setwise. The non-projective modules
+  in $b$ with vertex a proper subgroup of $D$ lie at the ends of 1-tubes.
+  Moreover, if $M$ is an indecomposable non-projective module in $B$ with vertex
+  a proper subgroup $D'$ of $D$, then by Nagao's Theorem, the Green
+  correspondent $f(M)$ is a module lying in $b_1^(N_G (D'))$. This is a block
+  with defect group $D$ and inertial index one, and so by
+  Theorem~@th:klein-four-inertial-index-one, $f(M) tilde.equiv Omega f(M)$ and
+  hence $M tilde.equiv Omega(M)$. It now follows from
+  Theorem~@th:almost-split-green-correspondence that the stable quiver of
+  $B$-modules consists of one component $ZZ tilde(A)_5$, two 3-tubes, and an
+  infinite set of 1-tubes, and $Omega$ fixes each component setwise. The
+  non-projective indecomposable modules with vertex a proper subgroup of $D$ lie
+  in 1-tubes.
+
+  We shall show that for each simple $B$-module $S$ we can produce two almost
+  split sequences satisfying the following conditions:
+  #enum(
+    numbering: "(a)",
+    [The middle term has at most one non-projective summand.],
+    [The left and right hand terms are non-isomorphic.],
+  )
+  Such an almost split sequence cannot lie in a $ZZ tilde(A)_5$ component or a
+  1-tube, so it must lie at the end of a 3-tube. Since there are only six
+  modules lying at the ends of 3-tubes, this will say there are at most three
+  simple modules.
+
+  Suppose $S$ is a simple module with projective cover $P_S$. If $S$ lies in a
+  tube it lies at the end, and so $Rad(P_S) slash Soc(P_S)$ is indecomposable.
+  Conversely, if $Rad(P_S) slash Soc(P_S)$ is indecomposable, then the almost
+  split sequences terminating in $overline(U) = P_S slash Soc(P_S)$ and
+  $overline(V) = S$ (notation as in Section~@sec:brauer-graph-algebras) satisfy
+  (a) by Proposition~@prop:almost-split-projective-injective, and $S$ lies at
+  the end of a tube. Since $S tilde.equiv.not Omega(S)$, these almost split
+  sequences satisfy (b), and $S$ lies at the end of a 3-tube.
+
+  On the other hand, if $Rad(P_S) slash Soc(P_S)$ is decomposable, then it has
+  exactly two summands $U$ and $V$, and $S$ lies in the $ZZ tilde(A)_5$
+  component. By Lemma~@lem:erdmann-middle-term, the almost split sequences
+  terminating in $overline(U)$ and $overline(V)$ satisfy (a). If
+  $Omega^2 (overline(U)) tilde.equiv overline(U)$, then since every periodic
+  module has period one or three, we have
+  $Omega(overline(U)) tilde.equiv overline(U)$, i.e.,
+  $underline(V) tilde.equiv overline(U)$. Since $Rad(P_S)$, $U$, $V$ and
+  $P_S slash Soc(P_S)$ lie in the $ZZ tilde(A)_5$ component, there is an
+  irreducible morphism $Omega(V) limits(arrow.r)^alpha U$, and
+  $Omega(V) tilde.equiv.not Rad(P_S)$. Since $Omega(V)$ has more composition
+  factors than $U$, $alpha$ is surjective and has
+  $Soc Omega(V) tilde.equiv V slash Rad(V) tilde.equiv
+  overline(U) slash Rad(overline(U)) tilde.equiv S$
+  in its kernel. #source(234)But
+  $Omega(V) slash Soc Omega(V) tilde.equiv V plus.o S$ and so either
+  $U tilde.equiv V$ or $U tilde.equiv S$. Since neither of these holds we have
+  $Omega^2 (overline(U)) tilde.equiv.not overline(U)$ and so the almost split
+  sequences terminating in $overline(U)$ and $overline(V)$ satisfy (b).
+
+  We now know that there are at most three simple $B$-modules. Next, we note
+  that not all simple $B$-modules can be periodic, since otherwise by the
+  Horseshoe Lemma~@lem:horseshoe, all finitely generated $B$-modules would have
+  resolutions by projective modules of bounded dimension. But then the
+  $ZZ tilde(A)_5$ component would contradict Auslander's
+  Theorem~@th:auslander-infinite-component.
+
+  Let $S_1$ be a non-periodic simple module whose projective cover has as few
+  composition factors as possible. Then $S_1$ lies in the $ZZ tilde(A)_5$
+  component, and hence so does $Omega(S_1)$. So
+  $Rad(P_1) slash Soc(P_1) tilde.equiv U_1 plus.o V_1$ with $U_1$ and $V_1$
+  non-zero indecomposable. An examination of the action of $Omega$ on the
+  $ZZ tilde(A)_5$ component shows that there have to be almost split sequences
+  $0 -> Omega(U_1) -> V_1 plus.o S_1 -> Omega^(-1) (U_1) -> 0$ and
+  $0 -> Omega(V_1) -> U_1 plus.o S_1 -> Omega^(-1) (V_1) -> 0$ with the possible
+  addition of a projective summand in the middle. We divide into two cases
+  according to whether such a projective summand appears in at least one of
+  these sequences.
+
+  First suppose that one of these sequences has a projective summand, say
+  $0 -> Omega(U_1) -> V_1 plus.o S_1 plus.o P_2 -> Omega^(-1) (U_1) -> 0$. In
+  this case we have $U_2 tilde.equiv V_1$, $V_2 tilde.equiv S_1$ and
+  $S_2 tilde.equiv U_1$, and so there is an almost split sequence
+  $0 -> Omega(V_1) -> S_1 plus.o S_2 -> Omega^(-1) (V_1) -> 0$ with the possible
+  addition of a projective summand in the middle. But this almost split sequence
+  does not make sense without a projective summand in the middle, so in fact it
+  is $0 -> Omega(V_1) -> S_1 plus.o S_2 plus.o P_3 -> Omega^(-1) (V_1) -> 0$.
+  Thus there are exactly three simple modules and
+  $Rad(P_j) slash Soc(P_j) tilde.equiv S_(j-1) plus.o S_(j+1)$ (indices modulo
+  three). We now argue as in the proof of the previous theorem to show that the
+  basic algebra of $B$ is isomorphic to $k A_4$.
+
+  Now suppose that we have almost split sequences
+  $0 -> Omega(U_1) -> V_1 plus.o S_1 -> Omega^(-1) (U_1) -> 0$ and
+  $0 -> Omega(V_1) -> U_1 plus.o S_1 -> Omega^(-1) (V_1) -> 0$ without
+  projective summands in the middle. If the projective cover of $U_1$ has the
+  projective cover of a non-periodic simple as a summand then $Omega(U_1)$ has
+  more composition factors than $V_1 plus.o S_1$, so this cannot happen.
+  Therefore there is at least one periodic simple, say $S_2$, which lies at the
+  end of a 3-tube. The modules at the end of this 3-tube are therefore
+  $Rad(P_2) = underline(U)_2$, $P_2 slash Soc(P_2) = overline(U)_2$ and
+  $S_2 = underline(V)_2 = overline(V)_2$.
+
+  Now consider the four modules $overline(U)_1$, $overline(V)_1$,
+  $underline(U)_1$ and $underline(V)_1$. Since these all lie at the ends of
+  3-tubes, either two of them are isomorphic, or one of them is isomorphic to
+  one of $S_2$, $overline(U)_2$ or $underline(U)_2$. In the first case, since
+  $overline(V)_1$ is not isomorphic to either $overline(U)_1$ or
+  $underline(U)_1$, without loss of generality we have
+  $overline(V)_1 tilde.equiv underline(V)_1$. This implies that $V_1$ is
+  uniserial with all composition factors isomorphic to $S_1$. Since there is an
+  injective irreducible map $Omega(U_1) -> V_1$, $Omega(U_1)$ has the same
+  property, contradicting the fact that the projective cover of $U_1$ does not
+  have $P_1$ as a summand. Thus the second case holds, and by dualising all
+  arguments if necessary we may assume without loss of generality that
+  $overline(U)_1 tilde.equiv underline(U)_2$. #source(235)Hence
+  $underline(V)_1 tilde.equiv Omega(overline(U)_1) tilde.equiv overline(U)_2$
+  and so $U_2 slash Rad(U_2) tilde.equiv Soc(U_2) tilde.equiv S_1$, and hence
+  $Ext_B^1 (S_1, S_2) tilde.equiv k$. Now
+  $Omega(underline(V)_1) tilde.equiv Omega(overline(U)_2) tilde.equiv S_2$ and
+  hence $Omega(V_1)$ is a non-split extension
+  $0 -> S_2 -> Omega(V_1) -> S_1 -> 0$. Now,
+  $Soc^2(U_1) tilde.equiv Soc^2(overline(U)_1) tilde.equiv
+  Soc^2(underline(U)_2)$
+  is also a non-split extension $0 -> S_2 -> Soc^2(U_1) -> S_1 -> 0$, so the
+  irreducible map $Omega(V_1) -> U_1$ is injective with simple cokernel. We
+  claim that this simple cokernel is not isomorphic to $S_1$ or $S_2$. If it
+  were isomorphic to $S_1$ then $U_1 = Uni(S_1, S_1, S_2)$ and
+  $V_1 slash Soc(V_1) tilde.equiv S_2$ so that there would be no surjective map
+  from $P_1$ to $U_1$, which contradicts the fact that $U_1$ has a projective
+  cover. If it were isomorphic to $S_2$ then
+  $Rad(P_1) slash Rad^2(P_1) tilde.equiv S_2 plus.o S_2$, which would contradict
+  the fact that $Ext_B^1 (S_1, S_2) tilde.equiv k$. Thus there is a third simple
+  module $S_3$, and we have $U_1 = Uni(S_3, S_1, S_2)$,
+  $U_2 = Uni(S_1, S_3, S_1)$ and $V_1 = Uni(S_2, S_1, S_3)$. Since the
+  projective cover of $U_1$ does not have the projective cover of a non-periodic
+  simple as a summand, $P_3$ is attached at the end of the other 3-tube. It is
+  now easy to see that $underline(U)_3 tilde.equiv overline(U)_1$, so that
+  $U_3 = Uni(S_1, S_2, S_1)$. We have proved that $B$ is a Brauer graph algebra,
+  and so finally the basic algebra may be determined by the method of quivers
+  and relations as explained in Section~@sec:brauer-graph-algebras. As usual,
+  the last scalar is determined using the fact that $B$ is a symmetric algebra.
+
+  Since $A_5 tilde.equiv SL_2(4)$#idx("alternating group", "$A_5$")#idx(
+    "group",
+    "alternating",
+    "$A_5$",
+  )#idx("$S L_2(4)$"), the principal block of $k A_5$ has a two dimensional
+  simple module whose restriction to a Sylow 2-subgroup is indecomposable of
+  even dimension and hence periodic, so this principal block is an example of a
+  block of type (ii).
+]
+
+#remark[
+  Part of this theorem, namely the fact that there are three simple modules in
+  $B$, may be given an alternative proof using generalised decomposition
+  numbers, see Brauer [@bib:Brauer1980] (Vol. III, 20–52: Some Applications of
+  the Theory of Blocks of Characters of Finite Groups, IV). The above proof in
+  fact shows something stronger, namely that any finite dimensional symmetric
+  algebra $Lambda$ whose stable Auslander–Reiten quiver is isomorphic to that of
+  $k A_4$ is in fact Morita equivalent to one of the two algebras listed, and in
+  particular has exactly three simple modules.
+
+  Auslander has conjectured that if $Lambda$ and $Gamma$ are any finite
+  dimensional algebras such that $lmodule(Lambda, underline(bold("mod")))$ is
+  equivalent to $lmodule(Gamma, underline(bold("mod")))$ (such algebras are said
+  to be *stably equivalent*#idx("stably equivalent algebras")) then $Lambda$ and
+  $Gamma$ have the same number of simple modules (other than those lying in
+  summands isomorphic to complete matrix algebras). This may be related to a
+  conjecture of Alperin, which says that if $B$ is a block of $k G$ with abelian
+  defect group $D$ and Brauer correspondent $b$ as a block of $N_G (D)$, then
+  the number of simple modules in $B$ is equal to the number of simple modules
+  in $b$. A theorem of Knörr implies that in this situation $D$ is a vertex of
+  every simple module in $B$, and so this is a special case of a more general
+  conjecture, usually called Alperin's conjecture#idx(
+    "Alperin's conjecture",
+  )#idx("conjecture", "Alperin's"). This says that if $B$ is a block of $k G$
+  with defect group $D$ (not necessarily abelian), then the number of simple
+  modules in $B$ is equal to the sum over all conjugacy classes of $p$-subgroups
+  $P$ of $G$ of the number of projective simple modules for $N_G (P) slash P$
+  which when viewed as modules for $N_G (P)$ lie in a block $b$ for which
+  #source(236)$b^G = B$. In other words, the number of simple modules in $B$,
+  which may be thought of as a global invariant, is equal to the number of
+  simple Green correspondents of modules in $B$, which may be calculated
+  locally. This is considered by many to be one of the most important
+  conjectures in modular representation theory at this time.
+]

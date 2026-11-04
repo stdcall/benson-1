@@ -1,0 +1,346 @@
+[
+ {
+  "file": "checks/lean/BensonRepresentations/BrauerTreeCartan.lean",
+  "declarations": [
+   "BensonRepresentations.BrauerTreeCartan.det_star_centre",
+   "BensonRepresentations.BrauerTreeCartan.det_star_leaf",
+   "BensonRepresentations.BrauerTreeCartan.step_z_two",
+   "BensonRepresentations.BrauerTreeCartan.step_z_exceptional",
+   "BensonRepresentations.BrauerTreeCartan.step_printed"
+  ],
+  "book": "Section 6.5, proof of Theorem 6.5.5: for a star with e edges, det(I + mJ) = em + 1 (exceptional centre; also the Cartan matrix of the Brauer correspondent with m = (p^n - 1)/e) and det(diag(m, 1, ..., 1) + J) = em + 1 (exceptional leaf), for every e; the two displays of p. 218 with e = l + r - 1, the case z = m + 1 with the corrected factor (l - 1)m + 1; the printed factor (l + 1)m + 1 changes the left side by -2m(m + 1)r.",
+  "limitations": "Matrices over a commutative ring indexed by an arbitrary finite type (the leaf star over a field with m != 0). The expansion det C = det X det Y0 + det X0 det Y - z det X0 det Y0, the identification of the four determinants with those of the subtrees and the induction are not formalized; they are checked in checks/sage/chapter-6.py for all trees with at most 7 edges and m <= 6.",
+  "passages": [
+   "th:cyclic-defect-quiver"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/CentralIdempotentLift.lean",
+  "declarations": [
+   "BensonRepresentations.CentralIdempotentLift.smul_top_mul_mem",
+   "BensonRepresentations.CentralIdempotentLift.eq_zero_of_range_le",
+   "BensonRepresentations.CentralIdempotentLift.peirce_eq_zero",
+   "BensonRepresentations.CentralIdempotentLift.central_of_peirce",
+   "BensonRepresentations.CentralIdempotentLift.central_of_lift",
+   "BensonRepresentations.CentralIdempotentLift.idempotent_mem_eq_zero",
+   "BensonRepresentations.CentralIdempotentLift.central_lift_unique",
+   "BensonRepresentations.CentralIdempotentLift.lift_orthogonal",
+   "BensonRepresentations.CentralIdempotentLift.lift_sum_eq_one",
+   "BensonRepresentations.CentralIdempotentLift.central_unique_of_nil"
+  ],
+  "book": "Section 1.9, proof of Theorem 1.9.4 (iii) as corrected by the author: for an idempotent lift f of a central idempotent of Lambda/pi Lambda, f Lambda (1 - f) lies in pi Lambda, hence equals pi f Lambda (1 - f) and vanishes by Nakayama's lemma; likewise (1 - f) Lambda f = 0, so f is central. Also the steps the proof leaves to the reader: pi Lambda contains no non-zero idempotent, the central lifts are pairwise orthogonal, sum to 1 and are unique. Section 1.8, Proposition 1.8.4: two central idempotents congruent modulo a nil two-sided ideal are equal.",
+  "limitations": "Lambda is a finitely generated algebra over a commutative ring R and the ideal I lies in the Jacobson radical of R (the book: Lambda free of finite rank over the complete discrete valuation ring O, I = J(O) = (pi)); I Lambda is the R-submodule I . Lambda. The reduction map Lambda -> Lambda/pi Lambda and the lifting of idempotents (part (i), which needs completeness) are not formalized: being a lift of a central idempotent enters as the congruences f x (1 - f), (1 - f) x f in I Lambda. Primitivity of the lifts is reduced to idempotent_mem_eq_zero. The existence half of Proposition 1.8.4 (the induction f Lambda (1 - f) = f J^n (1 - f)) is not covered.",
+  "passages": [
+   "th:idempotent-refinement-p-adic",
+   "prop:central-idempotents-lift"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/CentreNaturalEndo.lean",
+  "declarations": [
+   "BensonRepresentations.CentreNaturalEndo.app_eq_smul",
+   "BensonRepresentations.CentreNaturalEndo.central",
+   "BensonRepresentations.CentreNaturalEndo.ofCentral_app_one",
+   "BensonRepresentations.CentreNaturalEndo.eq_ofCentral"
+  ],
+  "book": "Section 2.2, proof of Proposition 2.2.7: multiplication by a central element is a natural endomorphism of the identity functor of Lambda-Mod, and every natural endomorphism phi is multiplication by lambda = phi_Lambda(1), which is central; the two constructions are inverse.",
+  "limitations": "Modules in the universe of Lambda; the ring structure of the correspondence and the transport to Z(Gamma) along an equivalence of module categories (the conclusion Z(Lambda) = Z(Gamma)) are not formalised.",
+  "passages": [
+   "prop:morita-centres"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/ConnectingHomomorphism.lean",
+  "declarations": [
+   "BensonRepresentations.ConnectingHomomorphism.exists_lift",
+   "BensonRepresentations.ConnectingHomomorphism.lift_is_cycle",
+   "BensonRepresentations.ConnectingHomomorphism.lift_well_defined"
+  ],
+  "book": "Section 2.3, proof of Proposition 2.3.7: for a short exact sequence of chain complexes and a cycle x of C'', a lift y exists with d y = phi(z), z is a cycle of C', and z is determined by x up to a boundary (independence of the lift y).",
+  "limitations": "Abelian groups and additive maps, with only the hypotheses used (exactness in degrees n and n - 1, injectivity of phi in degrees n - 1 and n - 2, commuting squares, d o d = 0 in C). Not covered: that [z] depends only on the class [x], additivity, exactness of the long exact sequence, the snake lemma.",
+  "passages": [
+   "prop:long-exact-homology",
+   "def:short-exact-complexes"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/CoxeterFixedPoint.lean",
+  "declarations": [
+   "BensonRepresentations.CoxeterFixedPoint.prodRefl_apply_of_not_mem",
+   "BensonRepresentations.CoxeterFixedPoint.refl_eq_self_iff",
+   "BensonRepresentations.CoxeterFixedPoint.fixed_of_prod_fixed",
+   "BensonRepresentations.CoxeterFixedPoint.coxeter_no_fixed_point",
+   "BensonRepresentations.CoxeterFixedPoint.sum_iterate_fixed",
+   "BensonRepresentations.CoxeterFixedPoint.exists_not_positive",
+   "BensonRepresentations.CoxeterFixedPoint.coxeter_exists_not_positive"
+  ],
+  "book": "Section 4.6, Lemma 4.6.9 and its proof: if a product w_(i_1) ... w_(i_k) of maps each changing only its own coordinate (distinct indices) fixes v, then every factor fixes v; hence for the reflections w_i(u) = u - 2(u, v_i)/(v_i, v_i) v_i of a positive definite form and a list containing every vertex once, the Coxeter transformation has no non-zero fixed point (i). If c^h(v) = v then sum_(i<h) c^i(v) is fixed by c, so some c^m(v), m < h, is not positive (ii).",
+  "limitations": "Vectors are functions from the vertex type to a linearly ordered field; the form is (u, w) = sum_(x,y) u_x S_xy w_y with S positive definite (an assumption: that the symmetrised Cartan matrix of a finite Dynkin diagram is positive definite and that c has finite order h are Propositions 4.6.3 and 4.6.4, checked in checks/sage/chapter-4a.py for the Dynkin diagrams with at most 8 vertices). For (ii) the hypothesis c^h(v) = v with h >= 1 replaces the order of c.",
+  "passages": [
+   "lem:coxeter-no-fixed-points",
+   "def:coxeter-transformation"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/CyclicDiagonal.lean",
+  "declarations": [
+   "BensonRepresentations.CyclicDiagonal.mul_S_sub_one_left",
+   "BensonRepresentations.CyclicDiagonal.mul_S_sub_one_right",
+   "BensonRepresentations.CyclicDiagonal.chain_map",
+   "BensonRepresentations.CyclicDiagonal.printed_not_chain_map"
+  ],
+  "book": "Section 3.5, p. 67, the diagonal approximation Delta_rs of Cartan and Eilenberg for Z/n (after Proposition 3.5.5), with the corrected range 0 <= i < j <= n-1: for the periodic resolution with d e_m = (x - 1) e_(m-1) (m odd) and N e_(m-1) (m even), the coefficient of e_r (x) e_s in Delta(d e_(r+s+1)) = (d (x) 1 + (-1)^r 1 (x) d) Delta(e_(r+s+1)) agrees on both sides, for every n, r, s; with the printed i <= j it does not (n = 2, r = 0, s = 1).",
+  "limitations": "The identities are proved in any commutative ring A with y^n = 1, which covers R(Z/n) (x)_R R(Z/n) = R(Z/n x Z/n) with x = x (x) 1, y = 1 (x) x; the reduction of the chain map condition to these coefficient identities (free bases of P (x) P, the diagonal action of x as x y) and the augmentation in degree 0 are not formalized (they are checked in checks/sage/chapter-3a.py for n <= 8 and total degree <= 6, where the sign change of the odd-odd component for T = 1 - x of Proposition 3.5.1 is also checked). The cup products of Proposition 3.5.5 are not formalized.",
+  "passages": [
+   "prop:cyclic-resolution",
+   "prop:cyclic-cohomology-ring"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/DimensionSubgroups.lean",
+  "declarations": [
+   "BensonRepresentations.DimensionSubgroups.F",
+   "BensonRepresentations.DimensionSubgroups.F_normal",
+   "BensonRepresentations.DimensionSubgroups.commutator_sub_one",
+   "BensonRepresentations.DimensionSubgroups.commutator_mem",
+   "BensonRepresentations.DimensionSubgroups.pow_char_mem"
+  ],
+  "book": "Section 3.14, p. 93 (before Theorem 3.14.6): the dimension subgroups F_r(P) = {g | g - 1 in J^r(kP)} are normal subgroups, the p-th power of an element of F_r(P) lies in F_(pr)(P) and [F_r(P), F_s(P)] <= F_(r+s)(P), by the identities gh - 1 = (g-1) + (h-1) + (g-1)(h-1), g^-1 - 1 = -g^-1(g-1), hgh^-1 - 1 = h(g-1)h^-1, g^p - 1 = (g-1)^p and [g,h] - 1 = ((g-1)(h-1) - (h-1)(g-1)) g^-1 h^-1 with [g,h] = g h g^-1 h^-1. Proved for the unit group of any ring A with a family of additive subgroups J r satisfying J r J s <= J (r+s), A J r <= J r, J r A <= J r (the powers of the radical of kP), in characteristic p for the p-th powers.",
+  "limitations": "F_r(P) is the intersection of P with the subgroup of units formalized here; that intersection, F_1(P) = P, F_2(P) = Phi(P), the equality F_r(P) = Gamma_r(P) and the dimension count of Theorem 3.14.6 are not formalized (checked in checks/sage/chapter-3b.py for every group of order p^k <= 32, 81, 125, 49 and 13 of the 267 groups of order 64, together with the group ring identities for all g, h in five groups).",
+  "passages": [
+   "sec:p-groups",
+   "th:jennings"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/EuclideanForm.lean",
+  "declarations": [
+   "BensonRepresentations.EuclideanForm.additive_of_subadditive",
+   "BensonRepresentations.EuclideanForm.norm_identity",
+   "BensonRepresentations.EuclideanForm.norm_nonneg",
+   "BensonRepresentations.EuclideanForm.ratio_eq_of_norm_zero",
+   "BensonRepresentations.EuclideanForm.eq_smul_of_norm_zero"
+  ],
+  "book": "Section 4.5, Lemma 4.5.5 (ii): if T^op admits an additive function n' (n'_y > 0, sum_y c_xy n'_y = 0) then every subadditive function on T is additive. Section 4.6, proof of Proposition 4.6.3: for an additive function n (all n_x non-zero) of a symmetric Gram matrix S (the symmetrised Cartan matrix c_xy f_y), (sum a_x v_x, sum a_x v_x) = -1/2 sum_(x,y) n_x n_y S_xy (a_x/n_x - a_y/n_y)^2; with S_xy <= 0 off the diagonal and n_x > 0 the form is positive semidefinite, a null vector has a_x/n_x = a_y/n_y along every edge, and on a connected graph every null vector is a multiple of n.",
+  "limitations": "The vertices form a finite type and the field is any linearly ordered field; S is assumed symmetric and n additive for S (sum_x n_x S_xy = 0, which follows from additivity for c on multiplying by f_y); connectivity is a chain of edges S_xy < 0 from a base vertex. That the printed numbers of Definition 4.5.1 (iii) are additive, Lemma 4.5.2, definiteness on the Dynkin diagrams and part (iii) of Proposition 4.6.3 are not formalized (they are checked in checks/sage/chapter-4a.py on finite families of graphs).",
+  "passages": [
+   "lem:euclidean-additive",
+   "prop:bilinear-form-definite"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/FiltrationShift.lean",
+  "declarations": [
+   "BensonRepresentations.FiltrationShift.F_zero",
+   "BensonRepresentations.FiltrationShift.range_le_ker",
+   "BensonRepresentations.FiltrationShift.F_top",
+   "BensonRepresentations.FiltrationShift.map_le",
+   "BensonRepresentations.FiltrationShift.le_map_sup",
+   "BensonRepresentations.FiltrationShift.inf_comap_le",
+   "BensonRepresentations.FiltrationShift.shiftMap_bijective",
+   "BensonRepresentations.FiltrationShift.shiftEquiv"
+  ],
+  "book": "Section 4.10, the Example after Proposition 4.10.6 (pp. 134-135), for Lambda = k[T]/(T^n) and F_ij = Ker(T^i) cap (Im(T^j) + Ker(T^(i-1))): F_(i,0) = Ker(T^i); if T^n = 0 then Im(T^j) <= Ker(T^i) for i + j >= n and F_(i+1,n-i) = Ker(T^i); and, with the corrected range i > 1, T maps F_(i,j-1) into F_(i-1,j) and induces an isomorphism F_(i,j-1)/F_(i,j) = F_(i-1,j)/F_(i-1,j+1) (surjective: T(F_(i,j-1)) + F_(i-1,j+1) = F_(i-1,j); injective: F_(i,j-1) cap T^-1(F_(i-1,j+1)) = F_(i,j)).",
+  "limitations": "Any module over any ring with any endomorphism T; the isomorphism is proved for i >= 2, j >= 1 without the bound n - j >= i. That the printed range i > 0 fails at i = 1 (the target F_(0,j)/F_(0,j+1) is zero) and that the subquotients are the functors S_i of the classification are checked in checks/sage/chapter-4b.py (n <= 6 over GF(2), GF(3), GF(5)), not here.",
+  "passages": [
+   "prop:functorial-filtration",
+   "sec:functorial-filtrations"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/FormsUV.lean",
+  "declarations": [
+   "BensonRepresentations.FormsUV.u_mul_v",
+   "BensonRepresentations.FormsUV.forms_i",
+   "BensonRepresentations.FormsUV.forms_ii",
+   "BensonRepresentations.FormsUV.forms_iii"
+  ],
+  "book": "Section 5.10: Lemma 5.10.3 (u v = 1 from the two isomorphisms of its proof, P + Omega Omega' = 1 + P Omega' and P P = P Omega + P in a(G)) and Proposition 5.10.4 (i)-(iii) with the book's proof: from <x, y> = (u x, y), the symmetry of < , >, u v = 1, dual(u) = v for the ring homomorphism [M] -> [M*] and the adjunction (x z, y) = (x, z* y), it follows that (x, y) = <v x, y> = <x, u y>, <x, y> = (u x, y) = (x, v y), (x, y) = (y, v^2 x) = (u^2 y, x).",
+  "limitations": "The ring a(G) is any commutative ring and the forms any functions A x A -> R; the module isomorphisms (Schanuel's lemma, the adjunction Hom(M (x) Z, N) = Hom(M, Z* (x) N), P_k self-dual, Omega^-1(k) = Omega(k)*) and Lemma 5.10.2 are hypotheses. They are checked on the modules of C_q (q <= 9), S3, A4, C3:C4, D10 and of GF(2)V4 in checks/sage/chapter-5.py.",
+  "passages": [
+   "lem:u-v-inverse",
+   "prop:forms-u-v"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/GroupExtensionCocycle.lean",
+  "declarations": [
+   "BensonRepresentations.GroupExtensionCocycle.assoc_iff_cocycle",
+   "BensonRepresentations.GroupExtensionCocycle.shift_bijective",
+   "BensonRepresentations.GroupExtensionCocycle.shift_mul_iff",
+   "BensonRepresentations.GroupExtensionCocycle.section_mul_iff",
+   "BensonRepresentations.GroupExtensionCocycle.mul_inv_split",
+   "BensonRepresentations.GroupExtensionCocycle.conj_complement"
+  ],
+  "book": "Section 3.7, Propositions 3.7.2 and 3.7.3: on pairs (m, g) with (m1, g1)(m2, g2) = (m1 + g1 m2 + alpha[g1|g2], g1 g2) the product is associative iff alpha is a 2-cocycle for the bar resolution; changing the coset representatives by beta, (m, g) -> (m + beta[g], g), is multiplicative iff alpha changes by the coboundary of beta; in the split extension g -> (beta[g], g) is a homomorphism iff beta is a 1-cocycle, and conjugating by (m, g') gives beta'[g] - beta[g] = (1 - g)(m - beta[g']).",
+  "limitations": "Only the model extension on M x G is treated, for a group G acting on an abelian group M by additive automorphisms. That every extension of G by M is isomorphic to such a model, that an isomorphism of extensions has the form (m, g) -> (m + beta[g], g), the group structure (identity, inverses) for a general cocycle, the counting of complements and classes, and the identification with Ext^n_RG(R, M) are not formalized; finite instances (complement classes, the 8 extensions of C2 x C2 by GF(2), the 27 of C3 x C3 by GF(3)) are checked in checks/sage/chapter-3a.py.",
+  "passages": [
+   "def:group-extension",
+   "prop:complements-first-cohomology",
+   "prop:extensions-second-cohomology"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/IdempotentNilSplitting.lean",
+  "declarations": [
+   "BensonRepresentations.IdempotentNilSplitting.idempotent_eq_pow",
+   "BensonRepresentations.IdempotentNilSplitting.idempotent_mem_subring",
+   "BensonRepresentations.IdempotentNilSplitting.idempotent_of_nilpotent",
+   "BensonRepresentations.IdempotentNilSplitting.idempotent_eq_of_sub_nilpotent",
+   "BensonRepresentations.IdempotentNilSplitting.map_injOn_idempotents",
+   "BensonRepresentations.IdempotentNilSplitting.map_ne_zero_of_idempotent"
+  ],
+  "book": "Section 6.2, proof of Proposition 6.2.2 (corrected): in a commutative ring of prime characteristic p, an idempotent e = s + i with i nilpotent equals s^(p^n) for some n, hence lies in any subring containing s (applied to Z(kG) = (kC_G(D))^G + sum (kG)^G_Q, Lemma 6.2.1 (ii)). Section 6.4, proof of Lemma 6.4.2: a homomorphism of commutative rings with nilpotent kernel is injective on idempotents (two idempotents with nilpotent difference are equal, since x = e - f satisfies x^3 = x) and does not kill a non-zero idempotent (used for pi : Z(kC_G(Q)) -> Z(kC_G(Q)/Z(Q)) and for pi(Br_D(e)) != 0).",
+  "limitations": "The ring is an abstract commutative ring; the decomposition of Lemma 6.2.1 and the inclusion of the ideal in J(kG) are hypotheses (the nilpotency of i), not formalized; that the image of pi contains all idempotents of Z(kC_G(Q)/Z(Q)) (the printed claim that pi is onto is false) and the compatibility of pi with the Brauer maps are checked only in checks/sage/chapter-6.py for the groups listed there.",
+  "passages": [
+   "prop:normal-p-subgroup-idempotents",
+   "lem:central-p-subgroup-blocks"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/IdempotentRefinement.lean",
+  "declarations": [
+   "BensonRepresentations.IdempotentRefinement.refinement_identity",
+   "BensonRepresentations.IdempotentRefinement.refinement_sub",
+   "BensonRepresentations.IdempotentRefinement.iter_sq_sub",
+   "BensonRepresentations.IdempotentRefinement.iter_sub",
+   "BensonRepresentations.IdempotentRefinement.exists_idempotent_lift",
+   "BensonRepresentations.IdempotentRefinement.nu_mul_f₁",
+   "BensonRepresentations.IdempotentRefinement.mu_sub_nu",
+   "BensonRepresentations.IdempotentRefinement.one_sub_inv_mul_nu",
+   "BensonRepresentations.IdempotentRefinement.printed_reading_iff",
+   "BensonRepresentations.IdempotentRefinement.nu_isUnit_of_one_sub",
+   "BensonRepresentations.IdempotentRefinement.nu_isUnit",
+   "BensonRepresentations.IdempotentRefinement.nu_inverse",
+   "BensonRepresentations.IdempotentRefinement.conjugate_of_components",
+   "BensonRepresentations.IdempotentRefinement.chain_le",
+   "BensonRepresentations.IdempotentRefinement.idempotent_of_chain",
+   "BensonRepresentations.IdempotentRefinement.orthogonal_of_chain",
+   "BensonRepresentations.IdempotentRefinement.sum_of_chain"
+  ],
+  "book": "Section 1.7: Theorem 1.7.3, the displayed identity e^2 - e = -(3 - 2a)(1 + 2a)(a^2 - a)^2 for e = 3a^2 - 2a^3, the lifting of idempotents modulo a nilpotent two-sided ideal by iterating a -> 3a^2 - 2a^3, and the conjugacy part in the author's corrected form: nu f1 = f2 nu, 1 - mu^(-1) nu = mu^(-1)(f2 mu + mu f1 - 2 f2 mu f1) = mu^(-1)(f2 mu - mu f1)(1 - 2 f1), and (1 + n + n^2 + ...) mu^(-1) is an inverse of nu (the reading 1 - nu = f2 mu + mu f1 - 2 f2 mu f1 holds only for mu = 1); Proposition 1.7.2, the converse construction mu = mu1 + mu3, mu' = mu2 + mu4; Corollary 1.7.4, the chain f'_i gives orthogonal idempotents f_i = f'_i - f'_(i+1) with sum 1. Theorem 1.9.4 (i): the conjugacy step needs only that 1 - mu^(-1) nu is invertible (nu_isUnit_of_one_sub).",
+  "limitations": "Lambda/N and its idempotents enter as congruences modulo a two-sided ideal N (TwoSidedIdeal), whose elements are assumed nilpotent; no quotient ring is constructed. The book's induction over Lambda/N^i is replaced by iterating the same step: the k-th iterate P k satisfies P k^2 - P k in (X^2 - X)^(2^k) Z[X]. The N-adic limit of Theorem 1.9.4 (i), the identification of Hom(Lambda e, Lambda e') with e Lambda e' (Lemma 1.3.3) used in Proposition 1.7.2, and the primitivity of the lifted idempotents in Corollary 1.7.4 are not formalized.",
+  "passages": [
+   "th:idempotent-refinement",
+   "prop:conjugate-idempotents",
+   "cor:idempotent-refinement",
+   "th:idempotent-refinement-p-adic"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/JenningsPoincare.lean",
+  "declarations": [
+   "BensonRepresentations.JenningsPoincare.reflect_layer",
+   "BensonRepresentations.JenningsPoincare.reflect_poincare",
+   "BensonRepresentations.JenningsPoincare.coeff_symm",
+   "BensonRepresentations.JenningsPoincare.natDegree_poincare",
+   "BensonRepresentations.JenningsPoincare.eval_one_poincare"
+  ],
+  "book": "Theorem 3.14.6 and Corollary 3.14.7, p. 95: the polynomial prod_r (1 + t^r + ... + t^((p-1) r))^(n_r) (over any finite set of indices r >= 1, p >= 1) is symmetric of degree L = sum_r (p-1) r n_r, so the radical length of kP is 1 + L and the Poincare series of the radical layers is symmetric (the step of the proof of Corollary 3.14.7 before self-duality), and its value at t = 1 is p^(sum n_r), the dimension |P| of kP.",
+  "limitations": "The product formula itself (Jennings' theorem: F_r = Gamma_r, the PBW basis of the restricted enveloping algebra, psi an isomorphism) and the self-duality argument Soc^i kP = J^(l-i) kP are not formalized; they are checked in checks/sage/chapter-3b.py (the formula for every group of order p^k <= 32, 81, 125, 49 and 13 groups of order 64; Soc^i = J^(l-i) and the PBW basis for the groups of order <= 32, 27 and 8 of order 81).",
+  "passages": [
+   "th:jennings",
+   "cor:radical-socle-layers"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/KleinFourScalars.lean",
+  "declarations": [
+   "BensonRepresentations.KleinFourScalars.rescale",
+   "BensonRepresentations.KleinFourScalars.scalar_product_eq_one",
+   "BensonRepresentations.KleinFourScalars.trace_ne_zero"
+  ],
+  "book": "Section 6.6, proof of Theorem 6.6.2 (and the last step of the proof of Theorem 6.6.3): with beta alpha = mu1 zeta epsilon, epsilon zeta = mu2 delta gamma, gamma delta = mu3 alpha beta, replacing zeta by mu1 zeta and delta by mu1 mu2 delta gives mu1 = mu2 = 1, mu3 replaced by mu1 mu2 mu3, and preserves the six zero relations; a symmetrising form lambda (lambda(xy) = lambda(yx)) with lambda(alpha beta) != 0 forces mu1 mu2 mu3 = 1; lambda(alpha beta) != 0 follows from alpha beta != 0, non-degeneracy of lambda and A alpha beta in k alpha beta.",
+  "limitations": "A is an arbitrary algebra over a field containing the six elements; the Ext-quiver, the completeness of the relations, A alpha beta in k alpha beta and alpha beta != 0 are hypotheses. The algebra of the quiver with relations, its symmetry exactly when mu1 mu2 mu3 = 1 (over GF(4)) and the isomorphism with kA4 are checked in checks/sage/chapter-6.py.",
+  "passages": [
+   "th:klein-four-normal-inertial-index-three",
+   "th:klein-four-inertial-index-three"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/SeparatingElement.lean",
+  "declarations": [
+   "BensonRepresentations.SeparatingElement.sum_root",
+   "BensonRepresentations.SeparatingElement.sum_indLambda",
+   "BensonRepresentations.SeparatingElement.sum_indLambda_ne_zero_iff"
+  ],
+  "book": "Section 5.3, Lemma 5.3.1 and its proof (the step that replaces the incorrect use of the Mackey decomposition theorem, which the author's list of corrections marks): for g of order n, zeta a primitive nth root of unity in a field of characteristic 0 and the induced class functions lambda_j^G of lambda_j(g^m) = zeta^(jm), sum_(j<n) zeta^(-j) lambda_j^G(y) = |{z in G : z^-1 y z = g}|, which is non-zero iff y is conjugate to g; the orthogonality sum_(j<n) zeta^(-j) zeta^(jm) = n [m = 1 mod n] for m < n.",
+  "limitations": "The induced class function is written with exponents (n^-1 sum_z sum_(m<n) [z^-1 y z = g^m] zeta^(jm)); that it is the Brauer character of the induced module M_j up^G (Curtis-Reiner, Methods I, Lemma (21.28)), that x lies in A(G, 1) and the identification of roots of unity in k-hat and CC are not formalized; j runs over 0..n-1 instead of 1..n. The count is checked against Brauer characters of induced modules over finite fields, and the printed freeness claim is refuted, in checks/sage/chapter-5.py.",
+  "passages": [
+   "lem:separating-element"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/SplitOfIsoMiddle.lean",
+  "declarations": [
+   "BensonRepresentations.SplitOfIsoMiddle.surjective_of_finrank_eq",
+   "BensonRepresentations.SplitOfIsoMiddle.ker_postcomp",
+   "BensonRepresentations.SplitOfIsoMiddle.finrank_hom_of_equiv",
+   "BensonRepresentations.SplitOfIsoMiddle.exists_section_of_equiv_prod"
+  ],
+  "book": "Section 2.6, Lemma 2.6.2: if Lambda is a k-algebra and 0 -> M1 -> M2 -> M3 is exact with finite dimensional modules and M2 = M1 (+) M3, the sequence splits; the proof: left exactness of Hom_Lambda(M3, -), the dimension count dim Hom(M3, M2) = dim Hom(M3, M1) + dim Hom(M3, M3), hence Hom(M3, M2) -> Hom(M3, M3) is onto and a preimage of the identity is a section.",
+  "limitations": "The identification of the cokernel of Hom(M3, M2) -> Hom(M3, M3) with a subgroup of Ext^1(M3, M1) (long exact sequence) and the statement that the sequence represents 0 in Ext^1 are not formalised; surjectivity of M2 -> M3 is not assumed (it follows).",
+  "passages": [
+   "lem:isomorphic-middle-splits"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/SquareZeroDimension.lean",
+  "declarations": [
+   "BensonRepresentations.SquareZeroDimension.finrank_map_add",
+   "BensonRepresentations.SquareZeroDimension.finrank_comap",
+   "BensonRepresentations.SquareZeroDimension.chain",
+   "BensonRepresentations.SquareZeroDimension.finrank_comap_quotient",
+   "BensonRepresentations.SquareZeroDimension.finrank_map_quotient",
+   "BensonRepresentations.SquareZeroDimension.square_zero_dim"
+  ],
+  "book": "Section 4.11, Lemma 4.11.4 and its proof (p. 139): for d : V -> V with d^2 = 0 and subspaces U_1 <= U_2, dim U_2/U_1 >= dim dU_2/dU_1 + dim d^-1 U_2/d^-1 U_1; the isomorphisms d^-1 U_2/d^-1 U_1 = ((U_2 cap Im d) + U_1)/U_1 and U_2/(U_2 cap (Ker d + U_1)) = dU_2/dU_1 (as dimensions) and the inclusions U_1 <= (U_2 cap Im d) + U_1 <= U_2 cap (Ker d + U_1) <= U_2.",
+  "limitations": "Finite dimensional vector spaces over a division ring; quotient dimensions are written as differences of dimensions of subspaces. The use of the lemma in the proof of Proposition 4.11.5 (words C acting as linear relations) is not formalized; the filtration of Proposition 4.11.5 is checked on string, band and random modules in checks/sage/chapter-4b.py.",
+  "passages": [
+   "lem:square-zero-dimensions",
+   "prop:dihedral-filtration"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/SurjectiveModRadicalSquare.lean",
+  "declarations": [
+   "BensonRepresentations.SurjectiveModRadicalSquare.pow_succ_mul_top_le",
+   "BensonRepresentations.SurjectiveModRadicalSquare.pow_succ_succ_le",
+   "BensonRepresentations.SurjectiveModRadicalSquare.fill_step",
+   "BensonRepresentations.SurjectiveModRadicalSquare.eq_top_of_sup_sq"
+  ],
+  "book": "Section 1.2, Proposition 1.2.8 and its proof: if Lambda' + J^2(Lambda) = Lambda then Lambda' + J^n(Lambda) = Lambda' + J^(n+1)(Lambda) for n >= 2, and Lambda' = Lambda.",
+  "limitations": "J is a nilpotent right ideal, given as a submodule of Lambda over a commutative ring R, and the subring Lambda' an R-subalgebra (R = Z gives all subrings); the book's J = J(Lambda) for an Artinian ring Lambda is nilpotent by Theorem 1.2.7 (i), which is a hypothesis here, not proved. That J^2 cannot be replaced by J is shown only by computation (checks/sage/chapter-1.py).",
+  "passages": [
+   "prop:surjective-mod-radical-square"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/TauZeroDual.lean",
+  "declarations": [
+   "BensonRepresentations.TauZeroDual.form_tau",
+   "BensonRepresentations.TauZeroDual.form_tau_eq_zero_iff"
+  ],
+  "book": "Section 5.11, Theorem 5.11.1, last sentence (corrected): for a bilinear form B and an antilinear map tau_0 with B(e_i, tau_0 e_j) = d_j delta_ij (the duality of the theorem), (x, tau_0(x)) = sum_i |a_i|^2 d(M_i) for x = sum_i a_i e_i, and this real number is 0 iff all a_i = 0 when every d_i >= 1.",
+  "limitations": "The duality ([N'], tau_0[N]) = d(N) delta (almost split sequences) is the hypothesis; the linear independence of the classes [M_i] (so that x = 0 iff all a_i = 0) is not formalized. The printed value sum_i |a_i|^2 is refuted (GF(2)C3, GF(2)V4, d = 2) in checks/sage/chapter-5.py.",
+  "passages": [
+   "th:tau-zero-dual"
+  ]
+ },
+ {
+  "file": "checks/lean/BensonRepresentations/WreathEmbedding.lean",
+  "declarations": [
+   "BensonRepresentations.WreathEmbedding.wmul_assoc",
+   "BensonRepresentations.WreathEmbedding.i_mul",
+   "BensonRepresentations.WreathEmbedding.act_one",
+   "BensonRepresentations.WreathEmbedding.act_wmul",
+   "BensonRepresentations.WreathEmbedding.act_i_mul"
+  ],
+  "book": "Section 3.15, p. 97: with g g_j = g_(pi(j)) h_j for left coset representatives g_1, ..., g_n of H in G and the printed product (pi'; h')(pi; h) = (pi' pi; h'_(pi(1)) h_1, ..., h'_(pi(n)) h_n) of Sigma_n wr H (associative), i(g) = (pi; h_1, ..., h_n) is a homomorphism, and (pi; h)(m_1, ..., m_n) = (h_(pi^-1(1)) m_(pi^-1(1)), ...) is an action, so i^*(M^n) is a G-module. Proved for any group G, subgroup H, representatives indexed by Fin n with the decomposition assumed to exist and to be unique, and any action of H.",
+  "limitations": "The action on M^(tensor n) (the same index bookkeeping on pure tensors), the identification i^*(M^n) = M up^G, the conjugacy of the embeddings for other representatives and Proposition 3.15.2 are not formalized; they are checked in checks/sage/chapter-3b.py for S4, A4, D8, S3, A5 and small modules.",
+  "passages": [
+   "sec:tensor-induction",
+   "def:tensor-induction"
+  ]
+ }
+]
