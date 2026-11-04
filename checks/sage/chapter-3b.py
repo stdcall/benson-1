@@ -177,6 +177,10 @@ from sage.all import identity_matrix as _identity_matrix
 from sage.all import matrix as dmatrix
 from sage.all import zero_matrix as _zero_matrix
 
+# Character tables and Brauer tables need GAP's table library; the
+# SageMath container does not load it by default.
+assert libgap.LoadPackage('ctbllib')
+
 SCOPE = 'chapter-3b'
 COUNT = [0]
 random.seed(20261104)

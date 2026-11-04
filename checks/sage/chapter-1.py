@@ -152,6 +152,10 @@ from sage.all import (
     prod, set_random_seed, vector, zero_matrix,
 )
 
+# Character tables and Brauer tables need GAP's table library; the
+# SageMath container does not load it by default.
+assert libgap.LoadPackage('ctbllib')
+
 COUNT = [0]
 
 

@@ -175,6 +175,10 @@ import random
 
 from sage.all import GF, QQ, ZZ, Integer, PolynomialRing, libgap
 
+# Character tables and Brauer tables need GAP's table library; the
+# SageMath container does not load it by default.
+assert libgap.LoadPackage('ctbllib')
+
 SCOPE = 'chapter-6'
 COUNT = [0]
 random.seed(20261104)

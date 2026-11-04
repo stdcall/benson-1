@@ -159,6 +159,10 @@ from sage.all import (
     matrix, moebius, prod, vector,
 )
 
+# Character tables and Brauer tables need GAP's table library; the
+# SageMath container does not load it by default.
+assert libgap.LoadPackage('ctbllib')
+
 SCOPE = 'chapter-5'
 COUNT = [0]
 UCF = UniversalCyclotomicField()
